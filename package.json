@@ -1,0 +1,12 @@
+{
+  "name": "html-image-renderer",
+  "version": "0.1.0",
+  "description": "NodeJS Library that render images from HTML pages",
+  "main": "index.js",
+  "repository": "https://github.com/Giancarl021/html-image-renderer.git",
+  "author": "Giancarlo Fontela da Luz <gian.f.luz@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^5.2.1"
+  }
+}
