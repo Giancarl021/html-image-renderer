@@ -1,7 +1,7 @@
 const parseOptions = require('./src/services/options');
 const createBrowser = require('./src/services/browser');
 
-module.exports = function (pathToHtml = null) {
+module.exports = function () {
     const browser = createBrowser();
     let iface = () => {};
 
@@ -9,7 +9,7 @@ module.exports = function (pathToHtml = null) {
         iface = fn;
     }
 
-    async function _render(pathToHtml, options) {
+    async function render(pathToHtml, options) {
         try {
             const { width, height, dest, params } = parseOptions(options);
             await browser.start();
@@ -24,8 +24,6 @@ module.exports = function (pathToHtml = null) {
             throw err;
         }
     }
-
-    const render = pathToHtml ? _render.bind(null, pathToHtml) : _render;
 
     return {
         setInterface,
