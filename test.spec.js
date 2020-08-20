@@ -1,26 +1,28 @@
 const createHIR = require('./index');
 
 async function main() {
+    // Create an instance of the Renderer
     const hir = createHIR();
 
     hir.setInterface(params => {
-        // if (!params.text) return;
-        // document.querySelector('h1').innerText = params.text;
-
-        // delete params.text;
-
-        for (const key in params) {
-            document.documentElement.style.setProperty('--' + key, params[key]);
-        }
+        // Get the first image element
+        const $img = document.querySelector('img');
+        // Change the image to the image sent in the params
+        $img.src = params.image;
+        // Set the image to be 110x100 px
+        $img.width = '110';
+        $img.height = '110';
     });
 
-    await hir.render('https://www.google.com', {
+    // NASA Official Website
+    await hir.render('https://www.nasa.gov/', {
+        // Parameters to the interface function
         params: {
-            color: '#303',
-            text: 'Xalabaias Monstro',
-            size: '100px'
+            // Logo image from the game Protecc Earth-chan (https://play.google.com/store/apps/details?id=com.implyingprogramming.proteccearthchan&hl=pt)
+            image: 'https://lh3.googleusercontent.com/sgOceUQzOv4cta_hMe0m7wrRLWuB8oiFjZFgRuoh6yqIAxEx6MBxQxK9V5FujZlVNg'
         },
-        dest: 'demo/out.png'
+        // Destination of the screenshot
+        dest: 'out.png'
     });
 }
 
