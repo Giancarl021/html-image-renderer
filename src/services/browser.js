@@ -1,5 +1,6 @@
+const { isUri } = require('valid-url');
 const puppeteer = require('puppeteer');
-const locate = require('./locate');
+const locate = require('../util/locate');
 
 module.exports = function () {
     let browser, page;
@@ -17,7 +18,8 @@ module.exports = function () {
 
     async function goTo(url) {
         page = await browser.newPage();
-        await page.goto(url);
+        await page.goto(isUri(url) ? url : locate(url));
+        
 
     }
 
@@ -31,7 +33,7 @@ module.exports = function () {
         await page.evaluate(fn, ...args);
     }
 
-    async function screenshot(dest, width = null, height = null, returnAsBuffer = false) {
+    async function screenshot(width = null, height = null, dest = null) {
         if (width && height) {
             await page.setViewport({
                 width,
@@ -44,10 +46,10 @@ module.exports = function () {
             });
         }
 
-        if (returnAsBuffer) return await page.screenshot();
+        if (!dest) return await page.screenshot();
 
         await page.screenshot({
-            path: locate(dest)
+            path: locate(String(dest))
         });
     }
 

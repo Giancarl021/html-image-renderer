@@ -6,7 +6,11 @@
   "repository": "https://github.com/Giancarl021/html-image-renderer.git",
   "author": "Giancarlo Fontela da Luz <gian.f.luz@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "node test.spec.js"
+  },
   "dependencies": {
-    "puppeteer": "^5.2.1"
+    "puppeteer": "^5.2.1",
+    "valid-url": "^1.0.9"
   }
 }
