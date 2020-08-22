@@ -2,6 +2,8 @@
 
 NodeJS Library that render images from HTML pages.
 
+Similar package: [html-to-image](https://www.npmjs.com/package/html-to-image).
+
 ### Installation
 
 Using NPM:

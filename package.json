@@ -12,5 +12,8 @@
   "dependencies": {
     "puppeteer": "^5.2.1",
     "valid-url": "^1.0.9"
-  }
+  },
+  "keywords": [
+    "screenshot", "html", "dom", "render", "image"
+  ]
 }
