@@ -5,8 +5,9 @@ module.exports = function () {
     const browser = createBrowser();
     let iface = () => {};
 
-    function setInterface(fn) {
-        iface = fn;
+    function setInterface(interface) {
+        if(typeof interface !== 'function') throw new Error('Interface must be a function');
+        iface = interface;
     }
 
     async function render(pathToHtml, options) {
