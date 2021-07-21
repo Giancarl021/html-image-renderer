@@ -1,4 +1,3 @@
-const { isUri } = require('valid-url');
 const puppeteer = require('puppeteer');
 const locate = require('../util/locate');
 
@@ -18,9 +17,7 @@ module.exports = function () {
 
     async function goTo(url) {
         page = await browser.newPage();
-        await page.goto(isUri(url) ? url : locate(url));
-        
-
+        await page.goto(url);
     }
 
     async function exec(functionName, ...args) {

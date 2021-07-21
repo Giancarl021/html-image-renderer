@@ -10,8 +10,7 @@
     "test": "node test.spec.js"
   },
   "dependencies": {
-    "puppeteer": "^5.2.1",
-    "valid-url": "^1.0.9"
+    "puppeteer": "^5.2.1"
   },
   "keywords": [
     "screenshot",

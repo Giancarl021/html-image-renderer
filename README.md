@@ -53,7 +53,7 @@ const iface = function (params) {
 The path to the local HTML file **or** the URL address of a website.
 
 ```javascript
-const inputPath = 'path/to/file.html'; // Load local HTML file
+const inputPath = 'file://path/to/file.html'; // Load local HTML file
 // or
 const inputPath = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Load a remote page
 ```
