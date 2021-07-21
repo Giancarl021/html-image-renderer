@@ -1,7 +1,7 @@
 const parseOptions = require('./src/services/options');
 const createBrowser = require('./src/services/browser');
 
-module.exports = function () {
+module.exports = function (browserOptions = {}) {
     const browser = createBrowser();
     let iface = () => {};
 
@@ -13,7 +13,7 @@ module.exports = function () {
     async function render(pathToHtml, options) {
         try {
             const { width, height, dest, params } = parseOptions(options);
-            await browser.start();
+            await browser.start(browserOptions);
             await browser.goTo(pathToHtml);
             await browser.eval(iface, params);
             const result = await browser.screenshot(width, height, dest);

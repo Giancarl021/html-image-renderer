@@ -2,7 +2,9 @@ const createHIR = require('./index');
 
 async function main() {
     // Create an instance of the Renderer
-    const hir = createHIR();
+    const hir = createHIR({
+        args: [ '--no-sandbox', '--disable-setuid-sandbox' ]
+    });
 
     hir.setInterface(params => {
         // Get the first image element

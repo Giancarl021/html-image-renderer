@@ -22,7 +22,7 @@ yarn add html-image-renderer
 const createHIR = require('html-image-renderer');
 
 async function main() {
-    const hir = createHIR();
+    const hir = createHIR(browserOptions);
 
     hir.setInterface(interface);
 
@@ -31,6 +31,8 @@ async function main() {
 
 main().catch(consoler.error);
 ```
+#### `browserOptions`
+Options passed directly to [``Puppeteer.launch()``](https://pptr.dev/#?product=Puppeteer&show=api-puppeteerlaunchoptions), default to ``{}``
 
 #### ``interface``
 
